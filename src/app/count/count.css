@@ -1,0 +1,341 @@
+
+/* ========================================
+   COUNT PAGE
+======================================== */
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 48px 24px 32px;
+  /* overflow: hidden; */
+  background-color: #090909;
+  color: #ffffff;
+}
+
+.count__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.count__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+.count__back {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.count__back:hover {
+  color: #c6ff00;
+}
+
+.count__step {
+  color: #888888;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.count__intro {
+  margin-bottom: 36px;
+}
+
+.count__eyebrow {
+  margin: 0 0 16px;
+  color: #c6ff00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.count__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(38px, 10vw, 52px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -2px;
+}
+
+.count__title span {
+  color: #c6ff00;
+}
+
+.count__description {
+  margin: 18px 0 0;
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   COUNT OPTIONS
+======================================== */
+
+.count__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+/* 선택 카드 */
+
+.count-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 290px;
+  padding: 18px 16px;
+  border: 1px solid #333333;
+  border-radius: 14px;
+  background-color: #191919;
+  color: #ffffff;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.count-card:hover {
+  border-color: #c6ff00;
+  background-color: #202020;
+  transform: translateY(-4px);
+}
+
+.count-card:active {
+  transform: translateY(-1px);
+}
+
+/* 카드 상단 */
+
+.count-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-card__number {
+  color: #c6ff00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.count-card__arrow {
+  color: #888888;
+  font-size: 18px;
+}
+
+/* 사진 미리보기 */
+
+.count-card__preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 115px;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #292929;
+}
+
+/* 1장 미리보기 */
+
+.count-card__single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  aspect-ratio: 3 / 4;
+  border: 2px solid #c6ff00;
+  border-radius: 3px;
+  background-color: #eeeeee;
+}
+
+.count-card__single span {
+  color: #999999;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* 4장 미리보기 */
+
+.count-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  width: 76px;
+  padding: 6px;
+  border: 2px solid #c6ff00;
+  border-radius: 3px;
+  background-color: #eeeeee;
+}
+
+.count-card__grid span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 3 / 4;
+  background-color: #cccccc;
+  color: #777777;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 카드 설명 */
+
+.count-card__info h2 {
+  margin: 12px 0 6px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.count-card__info p {
+  margin: 0;
+  color: #999999;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* 카드 하단 */
+
+.count-card__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  color: #c6ff00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.count__footer {
+  margin-top: 56px;
+  color: #666666;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ========================================
+   TABLET & MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .count {
+    padding: 36px 20px 28px;
+  }
+
+  .count__header {
+    margin-bottom: 52px;
+  }
+
+  .count__intro {
+    margin-bottom: 30px;
+  }
+
+  .count-card {
+    min-height: 270px;
+    padding: 16px 14px;
+  }
+
+  .count__footer {
+    margin-top: 44px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .count {
+    padding: 24px 16px;
+  }
+
+  .count__header {
+    margin-bottom: 42px;
+  }
+
+  .count__title {
+    font-size: 36px;
+  }
+
+  .count__options {
+    gap: 10px;
+  }
+
+  .count-card {
+    min-height: 250px;
+    padding: 14px 12px;
+  }
+
+  .count-card__info h2 {
+    font-size: 18px;
+  }
+
+  .count-card__info p {
+    font-size: 11px;
+  }
+
+  .count-card__action {
+    font-size: 12px;
+  }
+}
+
+
+/* 1장 카드 - 준비 중 상태 */
+.count-card--disabled {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.55;
+  position: relative;
+}
+
+/* 준비 중 카드에 마우스를 올렸을 때 */
+.count-card--disabled:hover {
+  opacity: 0.75;
+}
+
+/* 준비 중 상태의 선택 문구 */
+.count-card--disabled .count-card__action span:first-child {
+  color: #999;
+}
+
+/* 준비 중 카드의 화살표 */
+.count-card--disabled .count-card__arrow {
+  color: #aaa;
+}

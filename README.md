@@ -1,36 +1,335 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PHOTOKOK 🏸
+### 배드민턴의 순간을 네 컷의 추억으로!
 
-## Getting Started
+**PHOTOKOK**은 배드민턴 모임과 동호회에서 사용할 수 있는 모바일 웹 포토부스 서비스입니다.
 
-First, run the development server:
+사용자는 스마트폰 카메라로 직접 사진을 촬영하거나 앨범에서 사진을 선택하고, 다양한 배드민턴 테마 프레임을 적용해 나만의 인증샷을 만들 수 있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+완성된 사진은 다운로드하거나 QR 코드, 링크 공유 등을 통해 다른 사람들과 공유할 수 있습니다.
+
+---
+
+## 1. 프로젝트 개요
+
+| 항목 | 내용 |
+|---|---|
+| 프로젝트명 | PHOTOKOK |
+| 서비스 형태 | 모바일 웹 애플리케이션 |
+| 주요 사용자 | 배드민턴 동호회 및 모임 참여자 |
+| 핵심 기능 | 사진 촬영, 프레임 적용, 이미지 편집, 저장 및 공유 |
+| 개발 목적 | 배드민턴 활동의 기록과 추억을 재미있게 남기는 서비스 |
+| 개발 방식 | 개인 프로젝트 |
+
+### 핵심 방향
+
+- 별도 앱 설치 없이 웹 브라우저에서 이용
+- 스마트폰 화면에 최적화된 모바일 우선 디자인
+- 카메라 촬영과 앨범 사진 선택 모두 지원
+- 프레임 이미지를 추가해 새로운 디자인을 확장할 수 있는 구조
+- 회원가입 없이 누구나 이용할 수 있는 V1
+- 추후 개인별 사진 앨범과 회원 기능으로 확장 가능한 구조
+
+---
+
+## 2. 사용자 이용 흐름
+
+```text
+MAIN
+  ↓
+사진 가져오기 방식 선택
+  ├── 카메라 촬영
+  └── 앨범에서 선택
+  ↓
+사진 수 선택
+  ├── 1컷
+  └── 4컷
+  ↓
+사진 촬영 또는 선택
+  ↓
+프레임 선택
+  ↓
+사진 편집 및 위치 조정
+  ↓
+완성 이미지 확인
+  ↓
+저장 및 공유
+  ├── 이미지 다운로드
+  ├── QR 코드
+  ├── 링크 복사
+  └── 모바일 공유
+  ↓
+이벤트 갤러리
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 3. 주요 기능
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3-1. 사진 촬영 및 선택
 
-## Learn More
+**카메라 촬영**
+- 웹 브라우저에서 카메라 권한 요청
+- 웹 화면 내부에서 카메라 미리보기
+- 카운트다운 및 촬영 효과음
+- 셔터 버튼으로 사진 촬영
+- 촬영한 사진 확인 및 재촬영
 
-To learn more about Next.js, take a look at the following resources:
+**앨범 사진 선택**
+- 스마트폰 사진 앨범에서 이미지 선택
+- 1컷: 사진 1장 선택
+- 4컷: 사진 4장 한 번에 선택
+- 선택한 사진 미리보기
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3-2. 사진 프레임 선택
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 1컷 / 4컷 프레임 구분
+- 프레임 목록을 좌우로 스와이프
+- 프레임 PNG 파일을 기반으로 디자인 적용
+- 새로운 프레임 추가가 쉬운 구조
+- 프레임별 사진 배치 영역을 별도 설정
 
-## Deploy on Vercel
+### 3-3. 사진 편집
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+사진 영역별로 독립적인 편집 기능을 제공합니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 사진 확대 및 축소
+- 사진 위치 이동
+- 사진별 개별 편집
+- 초기화 및 재조정
+
+**중요한 편집 규칙**
+
+사진을 이동하거나 확대할 때 사진 영역 밖으로 빈 공간이 노출되지 않아야 합니다.
+
+- 사진은 처음부터 프레임 영역을 가득 채우도록 배치
+- 최소 확대 비율은 사진 영역을 완전히 덮는 크기
+- 사진의 가장자리가 프레임 영역 밖으로 벗어나지 않도록 이동 범위 제한
+- 4컷에서는 각 사진을 독립적으로 조정
+- 모바일 터치 및 두 손가락 확대/축소 지원
+
+### 3-4. 완성 이미지 생성
+
+- 선택한 사진과 프레임 PNG 합성
+- Canvas를 활용한 최종 이미지 생성
+- 완성 이미지 미리보기
+- PNG 이미지 다운로드
+
+### 3-5. 저장 및 공유
+
+- Google Drive에 완성 이미지 저장
+- 이미지별 고유 ID 생성
+- 이미지 공유 URL 생성
+- QR 코드 생성
+- 링크 복사
+- 모바일 공유 기능(Web Share API)
+
+### 3-6. 이벤트 갤러리
+
+V1에서는 회원가입 없이 이벤트별 갤러리를 운영합니다.
+
+- 이벤트별 사진 모아보기
+- 완성 이미지 목록 확인
+- 사진 선택 및 다운로드
+- 공유 링크로 갤러리 접근
+
+예시 URL:
+
+`/gallery/boramae-2026`
+
+---
+
+## 4. 개발 기술 스택
+
+| 구분 | 기술 | 용도 |
+|---|---|---|
+| Frontend | Next.js | 웹 애플리케이션 |
+| Language | TypeScript | 타입 안정성 |
+| UI | React | 화면 및 컴포넌트 구성 |
+| Styling | Tailwind CSS | 디자인 및 반응형 스타일 |
+| Camera | MediaDevices API | 웹 카메라 접근 |
+| Image | Canvas API | 사진 편집 및 합성 |
+| Storage | Google Drive API | 완성 이미지 저장 |
+| QR | QR Code Library | 공유 QR 생성 |
+| Deploy | Vercel | 웹 서비스 배포 |
+| Version Control | Git / GitHub | 소스 코드 관리 |
+
+### 데이터 및 저장 구조
+
+**V1**
+- 이미지 파일: Google Drive
+- 이벤트별 사진 목록: Google Drive 파일 정보 및 메타데이터 활용
+- 별도 데이터베이스 없이 시작
+- Next.js에서 이벤트 갤러리 화면 제공
+
+**V2**
+- Supabase 등 데이터베이스 도입 검토
+- 회원 정보 및 개인별 사진 데이터 관리
+- Google Drive 이미지 저장 구조는 유지 가능
+
+---
+
+## 5. 프로젝트 폴더 구조
+
+현재 Next.js 프로젝트는 `src/` 없이 생성되었으며, 향후 `src/` 중심 구조로 정리할 예정입니다.
+
+```text
+photokok/
+│
+├── public/
+│   ├── frames/
+│   │   ├── 1cut/
+│   │   └── 4cut/
+│   │
+│   ├── images/
+│   └── sounds/
+│
+├── src/
+│   ├── app/
+│   │   ├── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── globals.css
+│   │   │
+│   │   ├── source/
+│   │   ├── count/
+│   │   ├── camera/
+│   │   ├── album/
+│   │   ├── frames/
+│   │   ├── edit/
+│   │   │
+│   │   ├── result/
+│   │   │   └── [id]/
+│   │   │
+│   │   ├── gallery/
+│   │   │   └── [eventId]/
+│   │   │
+│   │   └── api/
+│   │       ├── google/
+│   │       │   └── callback/
+│   │       │
+│   │       └── photos/
+│   │           ├── upload/
+│   │           └── [id]/
+│   │
+│   ├── components/
+│   │   ├── common/
+│   │   ├── camera/
+│   │   ├── album/
+│   │   ├── frames/
+│   │   ├── editor/
+│   │   ├── result/
+│   │   └── gallery/
+│   │
+│   ├── lib/
+│   │   ├── google-drive.ts
+│   │   ├── image-compositor.ts
+│   │   ├── qr-generator.ts
+│   │   ├── share.ts
+│   │   └── utils.ts
+│   │
+│   ├── data/
+│   │   ├── frames.ts
+│   │   └── frame-config.ts
+│   │
+│   └── types/
+│       ├── photo.ts
+│       ├── frame.ts
+│       └── event.ts
+│
+├── .env.local
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+```
+
+### 폴더별 역할
+
+| 폴더 | 역할 |
+|---|---|
+| `app/` | 페이지 및 URL 라우팅 |
+| `components/` | 재사용 가능한 화면 요소 |
+| `lib/` | 이미지 합성, Google Drive, QR 등 기능 로직 |
+| `data/` | 프레임 목록 및 설정 데이터 |
+| `types/` | TypeScript 데이터 타입 |
+| `public/frames/` | 프레임 PNG 파일 |
+| `public/images/` | 서비스 이미지 및 로고 |
+| `public/sounds/` | 카운트다운 및 촬영 효과음 |
+
+※ 프레임 폴더에 PNG를 추가하면 자동으로 목록에 반영되도록 구성할 예정입니다. Vercel 배포 환경에서는 폴더를 실행 중에 직접 탐색하기 어려우므로, 빌드 시 프레임 목록을 생성하는 방식을 검토합니다.
+
+---
+
+## 6. 이미지 프레임 관리
+
+프레임은 PNG 이미지 파일을 기준으로 관리합니다.
+
+```text
+public/frames/
+│
+├── 1cut/
+│   ├── frame01.png
+│   ├── frame02.png
+│   └── frame03.png
+│
+└── 4cut/
+    ├── frame01.png
+    ├── frame02.png
+    └── frame03.png
+```
+
+프레임별 사진 영역의 위치와 크기는 별도 설정 데이터로 관리합니다.
+
+예시:
+
+- 프레임 이미지 경로
+- 프레임 종류(1컷 / 4컷)
+- 사진 영역의 좌표
+- 사진 영역의 너비와 높이
+- 사진 배치 순서
+
+이를 통해 프레임 디자인이 변경되어도 촬영 및 편집 기능을 다시 만들 필요가 없도록 설계합니다.
+
+---
+
+## 7. Google Drive 연동
+
+V1의 이미지 저장소는 개인 Google 계정의 Google Drive를 활용합니다.
+
+### 예상 동작 방식
+
+1. Google OAuth 2.0 인증
+2. PHOTOKOK 서버에서 Google Drive API 접근
+3. 완성된 이미지 업로드
+4. 이미지 ID 및 공유 정보 확보
+5. 이벤트 갤러리에서 이미지 표시
+
+### 환경 변수
+
+`.env.local` 파일에 인증 정보를 보관합니다.
+
+```env
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REDIRECT_URI=
+GOOGLE_REFRESH_TOKEN=
+GOOGLE_DRIVE_FOLDER_ID=
+```
+
+**보안 주의사항**
+- 인증 정보는 서버에서만 사용
+- `.env.local`은 GitHub에 업로드하지 않음
+- Google Client Secret을 프론트엔드 코드에 작성하지 않음
+- 공유 권한은 이벤트 갤러리 접근 정책에 맞게 설정
+
+※ 이전 Google Drive OAuth 테스트에서는 `invalid_client` 오류가 발생했습니다. 올바른 Client Secret으로 인증 및 이미지 업로드까지 다시 검증해야 합니다.
+
+---
+
+## 8. 개발 단계
+
+### V1 — 기본 서비스 구축
+
+| 단계 | 작업 | 상태 |
+|---|---|---|
+| 01 | Next.js 프로젝트 생성 | 완료 |
+| 02

@@ -1,0 +1,56 @@
+{
+  "frames": [
+    {
+      "id": "frame_long_1",
+      "name": "Long Frame 1",
+      "image": "/frames/4cut/frame_long_1.png",
+      "width": 1560,
+      "height": 3378,
+      "photoSlots": [
+        { "x": 152, "y": 157.7, "width": 1250, "height": 640 },
+        { "x": 152, "y": 858.1, "width": 1250, "height": 640 },
+        { "x": 152, "y": 1558.4, "width": 1250, "height": 640 },
+        { "x": 152, "y": 2258.8, "width": 1250, "height": 640 }
+      ]
+    },
+    {
+      "id": "frame_long_2",
+      "name": "Long Frame 2",
+      "image": "/frames/4cut/frame_long_2.png",
+      "width": 1560,
+      "height": 3378,
+      "photoSlots": [
+        { "x": 152, "y": 157.7, "width": 1250, "height": 640 },
+        { "x": 152, "y": 858.1, "width": 1250, "height": 630 },
+        { "x": 152, "y": 1558.4, "width": 1250, "height": 630 },
+        { "x": 152, "y": 2258.8, "width": 1250, "height": 630 }
+      ]
+    },
+    {
+      "id": "frame_short_3",
+      "name": "Short Frame 3",
+      "image": "/frames/4cut/frame_short_3.png",
+      "width": 1750.39,
+      "height": 2486.22,
+      "photoSlots": [
+        { "x": 93.31, "y": 811.42, "width": 745, "height": 725 },
+        { "x": 911.81, "y": 811.42, "width": 745, "height": 725 },
+        { "x": 93.31, "y": 1621.65, "width": 745, "height": 730  },
+        { "x": 911.81, "y": 1621.65, "width": 745, "height": 730  }
+      ]
+    },
+    {
+      "id": "frame_short_4",
+      "name": "Short Frame 4",
+      "image": "/frames/4cut/frame_short_4.png",
+      "width": 1750.39,
+      "height": 2486.22,
+      "photoSlots": [
+        { "x": 93.31, "y": 811.42, "width": 745, "height": 725 },
+        { "x": 911.81, "y": 811.42, "width": 745, "height": 725 },
+        { "x": 93.31, "y": 1621.65, "width": 745, "height": 730  },
+        { "x": 911.81, "y": 1621.65, "width": 745, "height": 730  }
+      ]
+    }
+  ]
+}

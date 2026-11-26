@@ -1,0 +1,508 @@
+
+/* 전체 페이지 */
+.frames-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 38px 20px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #111111;
+  color: #ffffff;
+}
+
+/* 상단 안내 */
+.frames-header {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.frames-step {
+  margin: 0 0 12px;
+
+  color: #9bff3b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.frames-header h1 {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.frames-description {
+  margin: 10px 0 0;
+
+  color: #999999;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* 프레임 미리보기 영역 */
+.frames-preview-section {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* 프레임 좌우 버튼 */
+.frames-arrow {
+  width: 32px;
+  height: 48px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 300;
+
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.frames-arrow:active {
+  color: #9bff3b;
+}
+
+/* 프레임 미리보기 */
+
+.frames-preview {
+  position: relative;
+
+  width: min(72vw, var(--frame-max-width));
+  height: auto;
+
+  aspect-ratio: var(--frame-ratio);
+
+  overflow: hidden;
+  background: #222222;
+  flex-shrink: 0;
+
+  touch-action: pan-y;
+  user-select: none;
+}
+
+
+
+/* 사진 슬롯 */
+.frames-photo-slot {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+
+  touch-action: manipulation;
+}
+
+/* 사진 슬롯 포커스 */
+.frames-photo-slot:focus-visible {
+  outline: 2px solid #9bff3b;
+  outline-offset: -2px;
+}
+
+/* 슬롯 내부 사진 */
+.frames-photo {
+  position: absolute;
+  display: block;
+
+  max-width: none;
+  max-height: none;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* 프레임 PNG */
+.frames-overlay {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+/* 페이지 인디케이터 */
+.frames-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin: 20px 0 24px;
+}
+
+.frames-indicator {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #555555;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.frames-indicator.active {
+  width: 20px;
+  border-radius: 10px;
+  background: #9bff3b;
+}
+
+/* 하단 버튼 영역 */
+.frames-actions {
+  width: 100%;
+  max-width: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* JPG 다운로드 */
+.frames-download-button {
+  min-width: 0;
+  padding: 12px 20px;
+
+  border: 1px solid #9bff3b;
+  border-radius: 8px;
+
+  background: #9bff3b;
+  color: #111111;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.frames-download-button:hover {
+  opacity: 0.85;
+}
+
+.frames-download-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* 다시 촬영 */
+.frames-retake-button {
+  min-width: 0;
+  padding: 12px 16px;
+
+  border: 1px solid #555555;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.frames-retake-button:hover {
+  border-color: #9bff3b;
+}
+
+/* 다운로드 오류 */
+.frames-error {
+  max-width: 360px;
+  margin: 16px 0 0;
+
+  color: #ff7777;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 로딩 */
+.frames-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111111;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* 사진이 없는 경우 */
+.frames-message-page {
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  background: #111111;
+  color: #ffffff;
+  text-align: center;
+}
+
+.frames-message-page h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.frames-message-page p {
+  margin: 0;
+  color: #999999;
+  font-size: 14px;
+}
+
+.frames-primary-button {
+  margin-top: 12px;
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #9bff3b;
+  color: #111111;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* ================================
+   사진 편집 모달
+================================ */
+
+/* 배경 */
+.crop-editor-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* 모달 */
+.crop-editor-modal {
+  width: min(100%, 440px);
+  max-height: 90vh;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  border: 1px solid #333333;
+  border-radius: 16px;
+
+  background: #1b1b1b;
+}
+
+/* 모달 상단 */
+.crop-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.crop-editor-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* 닫기 버튼 */
+.crop-editor-close {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #333333;
+  color: #ffffff;
+
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* 사진 편집 영역 */
+.crop-editor-viewport {
+  position: relative;
+
+  width: 100%;
+  max-height: 55vh;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: #080808;
+
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+
+  cursor: grab;
+}
+
+.crop-editor-viewport:active {
+  cursor: grabbing;
+}
+
+/* 편집 영역 안의 사진 */
+.crop-editor-image {
+  position: absolute;
+  display: block;
+
+  max-width: none;
+  max-height: none;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 안내 문구 */
+.crop-editor-guide {
+  margin: -6px 0 0;
+
+  color: #aaaaaa;
+  font-size: 12px;
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+/* 하단 버튼 */
+.crop-editor-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.crop-editor-cancel,
+.crop-editor-complete {
+  flex: 1;
+  min-height: 46px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* 취소 */
+.crop-editor-cancel {
+  border: 1px solid #555555;
+
+  background: transparent;
+  color: #ffffff;
+}
+
+/* 완료 */
+.crop-editor-complete {
+  border: none;
+
+  background: #9bff3b;
+  color: #111111;
+}
+
+
+
+
+/* 작은 스마트폰 */
+@media (max-width: 380px) {
+  .frames-page {
+    padding: 28px 12px 32px;
+  }
+
+  .frames-header h1 {
+    font-size: 19px;
+  }
+
+  .frames-preview-section {
+    gap: 3px;
+  }
+
+  .frames-arrow {
+    width: 26px;
+    font-size: 29px;
+  }
+
+  .frames-actions {
+    gap: 7px;
+  }
+
+  .frames-download-button,
+  .frames-retake-button {
+    padding: 11px 12px;
+    font-size: 12px;
+  }
+
+  .crop-editor-backdrop {
+  padding: 12px;
+}
+
+.crop-editor-modal {
+  padding: 16px;
+  gap: 14px;
+}
+}

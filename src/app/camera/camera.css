@@ -1,0 +1,379 @@
+
+/* ==============================
+   촬영 페이지 기본 설정
+============================== */
+
+.camera {
+  min-height: 100vh;
+  padding: 48px 24px;
+  background: #090909;
+  color: #ffffff;
+}
+
+.camera__content {
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+
+/* ==============================
+   상단 헤더
+============================== */
+
+.camera__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.camera__back {
+  color: #aaaaaa;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.camera__step {
+  color: #777777;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+
+/* ==============================
+   페이지 제목
+============================== */
+
+.camera__intro {
+  margin-bottom: 30px;
+}
+
+.camera__eyebrow {
+  margin-bottom: 12px;
+  color: #c6ff00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.camera__title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+}
+
+.camera__title span {
+  color: #c6ff00;
+}
+
+.camera__description {
+  margin-top: 12px;
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ==============================
+   상단 사진 미리보기
+============================== */
+
+.camera__thumbnail-section {
+  margin-bottom: 24px;
+}
+
+.camera__thumbnail-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #999999;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.camera__thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* 1컷은 한 장을 크게 표시 */
+/* .camera__thumbnail-section.is-single .camera__thumbnails {
+  grid-template-columns: 1fr;
+} */
+
+.camera__thumbnail {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #444444;
+  border-radius: 10px;
+  background: #171717;
+  color: #666666;
+  font-size: 14px;
+}
+
+.camera__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ==============================
+   실시간 카메라 화면
+============================== */
+
+.camera__preview {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  background: #171717;
+}
+
+.camera__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 좌우반전 활성화 */
+.camera__video.is-mirrored {
+  transform: scaleX(-1);
+}
+
+
+/* ==============================
+   카메라 연결 상태
+============================== */
+
+.camera__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  color: #aaaaaa;
+  font-size: 13px;
+  text-align: center;
+}
+
+
+/* ==============================
+   카메라 조작 버튼
+============================== */
+
+.camera__controls {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.camera__control {
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 30px;
+  background: rgba(20, 20, 20, 0.8);
+  color: #ffffff;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.camera__control.is-active {
+  background: #c6ff00;
+  color: #111111;
+}
+
+
+/* ==============================
+   카운트다운
+============================== */
+
+.camera__countdown {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c6ff00;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==============================
+   촬영 순간 플래시
+============================== */
+
+.camera__shot-flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  animation: camera-flash 0.2s ease-out forwards;
+}
+
+@keyframes camera-flash {
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+/* ==============================
+   촬영 버튼
+============================== */
+
+.camera__capture {
+  width: 100%;
+  min-height: 56px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 40px;
+  background: #c6ff00;
+  color: #111111;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.camera__capture:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.camera__progress {
+  margin-top: 12px;
+  color: #c6ff00;
+  font-size: 13px;
+  text-align: center;
+}
+
+
+/* ==============================
+   촬영 완료 화면
+============================== */
+
+.camera__result {
+  margin-top: 24px;
+}
+
+.camera__result > p {
+  margin-bottom: 20px;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+.camera__result-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.camera__retry,
+.camera__next {
+  min-height: 54px;
+  padding: 12px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.camera__retry {
+  border: 1px solid #444444;
+  background: transparent;
+  color: #ffffff;
+}
+
+.camera__next {
+  border: none;
+  background: #c6ff00;
+  color: #111111;
+}
+
+
+/* ==============================
+   하단 문구
+============================== */
+
+.camera__footer {
+  margin-top: 48px;
+  color: #555555;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+
+/* ==============================
+   모바일 화면
+============================== */
+
+@media (max-width: 600px) {
+  .camera {
+    padding: 36px 20px;
+  }
+
+  .camera__header {
+    margin-bottom: 42px;
+  }
+
+  .camera__title {
+    font-size: 30px;
+  }
+
+  .camera__description {
+    font-size: 13px;
+  }
+
+  .camera__thumbnail-section {
+    margin-bottom: 20px;
+  }
+
+  .camera__preview {
+    border-radius: 12px;
+  }
+
+  .camera__countdown {
+    font-size: 80px;
+  }
+
+  .camera__capture {
+    min-height: 54px;
+  }
+
+  .camera__result-buttons {
+    gap: 8px;
+  }
+
+  .camera__retry,
+  .camera__next {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+}
+
+
+/* 촬영 완료 시 카메라 영역만 숨김 */
+.camera__camera-area.is-hidden {
+  display: none;
+}

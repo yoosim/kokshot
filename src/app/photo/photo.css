@@ -1,0 +1,260 @@
+
+/* ========================================
+   PHOTO PAGE
+======================================== */
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 48px 24px 32px;
+  /* overflow: hidden; */
+  background-color: #090909;
+  color: #ffffff;
+}
+
+.photo__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.photo__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+.photo__back {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.photo__back:hover {
+  color: #c6ff00;
+}
+
+.photo__step {
+  color: #888888;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.photo__intro {
+  margin-bottom: 36px;
+}
+
+.photo__eyebrow {
+  margin: 0 0 16px;
+  color: #c6ff00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.photo__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(38px, 10vw, 52px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -2px;
+}
+
+.photo__title span {
+  color: #c6ff00;
+}
+
+.photo__description {
+  margin: 18px 0 0;
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   PHOTO OPTIONS
+======================================== */
+
+.photo__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+/* 선택 카드 */
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 210px;
+  padding: 20px 16px;
+  border: 1px solid #333333;
+  border-radius: 14px;
+  background-color: #191919;
+  color: #ffffff;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.photo-card:hover {
+  border-color: #c6ff00;
+  background-color: #202020;
+  transform: translateY(-4px);
+}
+
+.photo-card:active {
+  transform: translateY(-1px);
+}
+
+/* 카드 상단 */
+
+.photo-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-card__number {
+  color: #777777;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.photo-card__icon {
+  font-size: 25px;
+}
+
+/* 카드 설명 */
+
+.photo-card__info h2 {
+  margin: 24px 0 7px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.photo-card__info p {
+  margin: 0;
+  color: #999999;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* 카드 하단 */
+
+.photo-card__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  color: #c6ff00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.photo__footer {
+  margin-top: 56px;
+  color: #666666;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ========================================
+   TABLET & MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .photo {
+    padding: 36px 20px 28px;
+  }
+
+  .photo__header {
+    margin-bottom: 52px;
+  }
+
+  .photo__intro {
+    margin-bottom: 30px;
+  }
+
+  .photo__description {
+    font-size: 13px;
+  }
+
+  .photo-card {
+    min-height: 200px;
+    padding: 18px 14px;
+  }
+
+  .photo__footer {
+    margin-top: 44px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .photo {
+    padding: 24px 16px;
+  }
+
+  .photo__header {
+    margin-bottom: 42px;
+  }
+
+  .photo__title {
+    font-size: 36px;
+  }
+
+  .photo__options {
+    gap: 10px;
+  }
+
+  .photo-card {
+    min-height: 190px;
+    padding: 16px 12px;
+  }
+
+  .photo-card__info h2 {
+    font-size: 15px;
+  }
+
+  .photo-card__info p {
+    font-size: 11px;
+  }
+
+  .photo-card__action {
+    font-size: 12px;
+  }
+}
